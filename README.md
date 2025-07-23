@@ -17,4 +17,4 @@ This is a web app that lets you view, add, and delete blog posts. Built with HTM
 
 The blog post data is fetched from this JSON file:
 
-https://jake-thrasher.github.io/blog-data/posts.json
+https://Jake-Thrasher.github.io/blog-data/blogData.json
