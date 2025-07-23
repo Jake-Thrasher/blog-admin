@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
+  color: #a8d8ff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.card .card-title,
+.card .card-subtitle,
+.card .card-text,
+.card small {
+  color: #a8d8ff;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #2980b9;
+  border: none;
+}
+
+.btn-warning {
+  background-color: #f39c12;
+  border: none;
+  color: #121212;
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+  background-color: #d68910;
+  color: #121212;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  border: none;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: #c0392b;
+}
+
+.btn-secondary {
+  border-color: #a8d8ff;
+  color: #a8d8ff;
+  background-color: transparent;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #a8d8ff;
+  color: #121212;
+}
+
+input.form-control,
+select.form-select,
+textarea.form-control {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  color: #a8d8ff;
+}
+
+input.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: #7f9ccf;
+}
+
+input.form-control:focus,
+select.form-select:focus,
+textarea.form-control:focus {
+  background-color: #292929;
+  border-color: #3498db;
+  color: #a8d8ff;
+  outline: none;
+  box-shadow: 0 0 5px #3498db;
+}
+
+.toast {
+  background-color: #1e1e1e !important;
+  color: #a8d8ff !important;
+  border: 1px solid #3498db !important;
+}
+
+.toast .btn-close {
+  filter: invert(1);
+}
