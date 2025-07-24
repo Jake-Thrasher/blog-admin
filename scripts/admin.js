@@ -101,7 +101,6 @@ addPostBtn.addEventListener('click', () => {
 postForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const id = editingPostId ?? Date.now();
@@ -147,6 +146,44 @@ window.deletePost = function (id) {
   showToast('Post deleted!', 'danger');
 };
 
+// LIVE async updating while editing ANY input inside postForm
+function enableLiveUpdates() {
+  let debounceTimeout;
+
+  postForm.addEventListener('input', async (event) => {
+    clearTimeout(debounceTimeout);
+
+    debounceTimeout = setTimeout(async () => {
+      if (editingPostId === null) return;
+
+      const input = event.target;
+      const index = posts.findIndex(p => p.id === editingPostId);
+      if (index === -1) return;
+
+      const updatedPost = { ...posts[index] };
+
+      switch (input.id) {
+        case 'postTitle':
+          updatedPost.title = input.value.trim();
+          break;
+        case 'postDate':
+          updatedPost.date = input.value;
+          break;
+        case 'postContent':
+          updatedPost.content = input.value.trim();
+          break;
+        case 'postTags':
+          updatedPost.tags = input.value.split(',').map(t => t.trim()).filter(t => t);
+          break;
+      }
+
+      posts[index] = updatedPost;
+      applyFiltersAndRender();
+      showToast('Post updated (auto-save)', 'info');
+    }, 300);
+  });
+}
+
 let searchTimeout;
 searchInput.addEventListener('input', () => {
   clearTimeout(searchTimeout);
@@ -168,3 +205,4 @@ function applyFiltersAndRender() {
 }
 
 fetchPosts();
+enableLiveUpdates();
