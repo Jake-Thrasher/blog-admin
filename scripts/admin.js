@@ -146,7 +146,6 @@ window.deletePost = function (id) {
   showToast('Post deleted!', 'danger');
 };
 
-// LIVE async updating while editing ANY input inside postForm
 function enableLiveUpdates() {
   let debounceTimeout;
 
